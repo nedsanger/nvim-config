@@ -11,6 +11,10 @@ return {
     },
 
     config = function()
+      vim.lsp.config('*', {
+        root_markers = { '.git' },
+      })
+
       local servers = { 
         "pyright",
         "hls",
@@ -28,10 +32,6 @@ return {
         }
       }
       vim.lsp.enable(servers)
-      vim.lsp.config('*', {
-        root_markers = { '.git' },
-      })
-
       vim.lsp.config["tinymist"] = {
         cmd = { "tinymist" },
         filetypes = { "typst" },
