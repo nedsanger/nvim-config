@@ -18,9 +18,12 @@ map("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- file explorer
 map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
+-- comments
+map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
+map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
+
 -- keybinds to make split navigation easier.
 --  use CTRL+<hjkl> to switch between windows
---
 --  see `:help wincmd` for a list of all window commands
 map('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 map('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
