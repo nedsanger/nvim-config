@@ -4,8 +4,10 @@ return {
   config = function()
     -- comment out lines
     require('mini.comment').setup()
+    -- produce (, {, [, etc. in pairs
+    require('mini.pairs').setup()
     -- better looking status line
-    require('mini.statusline').setup()
     require('mini.git').setup()
+    require('mini.statusline').setup()
   end,
 }
