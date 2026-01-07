@@ -5,7 +5,7 @@ return {
   config = function()
     require("catppuccin").setup({
       styles = {
-	conditionals = { },
+        conditionals = { },
         comments = { "italic" },
       }
     })
