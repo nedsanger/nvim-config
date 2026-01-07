@@ -15,6 +15,9 @@ map("n", "<leader>xc", "<cmd>qa<CR>")
 --  See `:help hlsearch`
 map("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
+-- file explorer
+map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
 -- keybinds to make split navigation easier.
 --  use CTRL+<hjkl> to switch between windows
 --
