@@ -1,10 +1,10 @@
 return {
-  'saghen/blink.cmp',
+  "saghen/blink.cmp",
   -- optional: provides snippets for the snippet source
   -- dependencies = { 'rafamadriz/friendly-snippets' },
 
   -- use a release tag to download pre-built binaries
-  version = '1.*',
+  version = "1.*",
 
   opts = {
     -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
@@ -20,25 +20,25 @@ return {
     --
     -- See :h blink-cmp-config-keymap for defining your own keymap
     keymap = {
-      preset = 'default',
-      ['<tab>'] = { 'select_and_accept', 'fallback' },
+      preset = "default",
+      ["<tab>"] = { "select_and_accept", "fallback" },
     },
 
     appearance = {
       -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
       -- Adjusts spacing to ensure icons are aligned
-      nerd_font_variant = 'mono'
+      nerd_font_variant = "mono",
     },
 
     -- (Default) Only show the documentation popup when manually triggered
     completion = {
-      documentation = { auto_show = true, auto_show_delay_ms = 500}
+      documentation = { auto_show = true, auto_show_delay_ms = 500 },
     },
 
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'buffer' },
+      default = { "lsp", "path", "snippets", "buffer" },
     },
 
     -- fuzzy finder
@@ -47,5 +47,5 @@ return {
     -- show function signatures
     signature = { enabled = true },
   },
-  opts_extend = { "sources.default" }
+  opts_extend = { "sources.default" },
 }

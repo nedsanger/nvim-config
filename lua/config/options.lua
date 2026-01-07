@@ -8,7 +8,7 @@ local opt = vim.opt
 o.number = true
 
 -- enable mouse mode: useful for resizing splits
-o.mouse = 'a'
+o.mouse = "a"
 
 -- don't show the mode, since it's already in the status line
 o.showmode = false
@@ -18,7 +18,7 @@ o.showmode = false
 --  remove this option if you want your OS clipboard to remain independent
 --  see `:help 'clipboard'`
 vim.schedule(function()
-  o.clipboard = 'unnamedplus'
+  o.clipboard = "unnamedplus"
 end)
 
 -- enable break indent
@@ -53,10 +53,10 @@ o.splitbelow = true
 --   see `:help lua-options`
 --   and `:help lua-options-guide`
 o.list = true
-opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 -- preview substitutions live, as you type!
-o.inccommand = 'split'
+o.inccommand = "split"
 
 -- show which line your cursor is on
 o.cursorline = true

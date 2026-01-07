@@ -1,5 +1,5 @@
 local function my_on_attach(bufnr)
-  local api = require "nvim-tree.api"
+  local api = require("nvim-tree.api")
 
   local function opts(desc)
     return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
@@ -22,8 +22,8 @@ local function my_on_attach(bufnr)
   end
 
   -- custom mappings
-  vim.keymap.set("n", "<CR>", my_open_node, opts "Open")
-  vim.keymap.set("n", "gh", api.tree.toggle_hidden_filter, opts "Toggle Filter: Dotfiles")
+  vim.keymap.set("n", "<CR>", my_open_node, opts("Open"))
+  vim.keymap.set("n", "gh", api.tree.toggle_hidden_filter, opts("Toggle Filter: Dotfiles"))
 end
 
 return {
@@ -34,10 +34,10 @@ return {
     "nvim-tree/nvim-web-devicons",
   },
   config = function()
-    require("nvim-tree").setup {
+    require("nvim-tree").setup({
       on_attach = my_on_attach,
       filters = { dotfiles = true },
       git = { enable = false },
-    }
+    })
   end,
 }
