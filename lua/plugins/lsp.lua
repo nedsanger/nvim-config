@@ -15,7 +15,7 @@ return {
         root_markers = { '.git' },
       })
 
-      local servers = { 
+      local servers = {
         "pyright",
         "hls",
         "lua_ls",
@@ -43,10 +43,10 @@ return {
       }
 
       vim.diagnostic.config {
-        virtual_text = false, -- removes inline diagnostic text
+        virtual_text = false,                    -- removes inline diagnostic text
         virtual_lines = { current_line = true }, -- show diagnostics for the current line
-        underline = false, -- removes squiggly underlines
-        signs = true, -- keep gutter signs (optional)
+        underline = false,                       -- removes squiggly underlines
+        signs = true,                            -- keep gutter signs (optional)
         -- update_in_insert = false,
       }
     end
