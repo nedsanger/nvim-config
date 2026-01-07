@@ -1,7 +1,20 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   opts = {
-    ensure_installed = {
+    -- autoinstall languages that are not installed
+    auto_install = true,
+    highlight = {
+      enable = true,
+      additional_vim_regex_highlighting = false,
+    },
+    indent = {
+      enable = true,
+      disable = { "ruby" },
+    },
+  },
+  build = ":TSUpdate",
+  config = function()
+    require("nvim-treesitter").install({
       "bash",
       "c",
       "diff",
@@ -17,17 +30,6 @@ return {
       "typst",
       "vim",
       "vimdoc",
-    },
-    -- autoinstall languages that are not installed
-    auto_install = true,
-    highlight = {
-      enable = true,
-      additional_vim_regex_highlighting = false,
-    },
-    indent = {
-      enable = true,
-      disable = { "ruby" },
-    },
-  },
-  build = ":TSUpdate",
+    })
+  end,
 }
