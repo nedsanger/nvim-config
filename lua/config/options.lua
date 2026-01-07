@@ -72,5 +72,8 @@ o.confirm = true
 -- rounded edges for floating windows
 o.winborder = "rounded"
 
+-- use four spaces to indent
+o.shiftwidth = 4
+
 -- syntax concealment
 o.conceallevel = 2
