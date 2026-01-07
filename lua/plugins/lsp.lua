@@ -5,17 +5,31 @@ return {
   {
     'neovim/nvim-lspconfig',
 
-    enable = false,
-
     dependencies = {
       { "mason-org/mason.nvim", opts = {} },
+      { 'saghen/blink.cmp' }
     },
 
     config = function()
-      local servers = { "pyright", "hls", "lua_ls", "rust_analyzer", "texlab", "tinymist" }
+      local servers = { 
+        "pyright",
+        "hls",
+        "lua_ls",
+        "rust_analyzer",
+        "texlab",
+        tinymist = {
+          cmd = { "tinymist" },
+          filetypes = { "typst" },
+          settings = {
+            formatterMode = "typstyle",
+            exportPdf = "onType",
+            semanticTokens = "disable",
+          },
+        }
+      }
       vim.lsp.enable(servers)
       vim.lsp.config('*', {
-         root_markers = { '.git' },
+        root_markers = { '.git' },
       })
 
       vim.lsp.config["tinymist"] = {
