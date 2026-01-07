@@ -14,7 +14,7 @@ return {
 
     { 'nvim-telescope/telescope-ui-select.nvim' },
 
-   { 'nvim-tree/nvim-web-devicons', enabled = true },
+    { 'nvim-tree/nvim-web-devicons', enabled = true },
   },
   config = function()
     pcall(require('telescope').load_extension, 'fzf')
