@@ -38,7 +38,7 @@ o.smartcase = true
 o.updatetime = 250
 
 -- decrease mapped sequence wait time
-o.timeoutlen = 300
+o.timeoutlen = 400
 
 -- configure how new splits should be opened
 o.splitright = true
