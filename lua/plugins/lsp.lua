@@ -12,7 +12,7 @@ return {
     },
 
     config = function()
-      local servers = { "pyright", "hls", "rust-analyzer", "texlab", "tinymist" }
+      local servers = { "pyright", "hls", "lua_ls", "rust_analyzer", "texlab", "tinymist" }
       vim.lsp.enable(servers)
       vim.lsp.config('*', {
          root_markers = { '.git' },
