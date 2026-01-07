@@ -9,11 +9,11 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 map("n", "<leader>w", "<cmd>w<CR>", { desc = "[W]rite buffer" })
 
 -- quit
-map("n", "<leader>wq", "<cmd>wq<CR>", { desc = "[W]rite and [q]uit Neovim" })
+map("n", "<leader>wq", "<cmd>wqa<CR>", { desc = "[W]rite and [q]uit Neovim" })
+map("n", "<leader>qq", "<cmd>qa<CR>", { desc = "[Q]uit Neovim" })
 
 -- clear highlights on search when pressing <Esc> in normal mode
---  See `:help hlsearch`
-map("n", "<Esc>", "<cmd>nohlsearch<CR>")
+map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Remove search highlights" })
 
 -- file explorer
 map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
@@ -24,7 +24,6 @@ map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
 
 -- keybinds to make split navigation easier.
 --  use CTRL+<hjkl> to switch between windows
---  see `:help wincmd` for a list of all window commands
 map('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 map('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 map('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
@@ -58,3 +57,17 @@ end, { desc = '[S]earch [/] in Open Files' })
 vim.keymap.set('n', '<leader>sn', function()
   builtin.find_files { cwd = vim.fn.stdpath 'config' }
 end, { desc = '[S]earch [N]eovim files' })
+
+-- change the nvim-tree root to the directory of the current buffer
+map("n", "<leader>cd", function()
+  local path = vim.api.nvim_buf_get_name(0)
+  if path == "" then
+    return
+  end
+  local directory = vim.fs.dirname(path)
+  require("nvim-tree.api").tree.change_root(directory)
+end)
+
+-- nvimtree
+map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
+map("n", "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "nvimtree focus window" })
