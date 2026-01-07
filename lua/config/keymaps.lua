@@ -21,6 +21,9 @@ map("n", "<C-c>", "<cmd>%yank<CR>", { desc = "Yank buffer" })
 -- open file explorer
 map("n", "-", "<cmd>Oil<CR>", { desc = "Open parent directory" })
 
+-- toggle floating terminal
+map({ "n", "t" }, "<C-\\>", "<cmd>ToggleTerm direction=float<CR>")
+
 -- comments
 map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
 map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
