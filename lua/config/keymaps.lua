@@ -6,10 +6,10 @@ local map = vim.keymap.set
 map("n", ";", ":", { desc = "CMD enter command mode" })
 
 -- write buffer
-map("n", "<leader>w", "<cmd>w<CR>")
+map("n", "<leader>w", "<cmd>w<CR>", { desc = "[W]rite buffer" })
 
 -- exit
-map("n", "<leader>xc", "<cmd>qa<CR>")
+map("n", "<leader>xc", "<cmd>qa<CR>", { desc = "[C]lose Neovim" })
 
 -- clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
