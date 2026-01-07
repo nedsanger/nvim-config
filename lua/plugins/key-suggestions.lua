@@ -3,7 +3,7 @@ return {
   event = 'VimEnter', -- Sets the loading event to 'VimEnter'
   opts = {
     -- delay between pressing a key and opening which-key (milliseconds)
-    delay = 500,
+    delay = 250,
 
     spec = {
       -- suggestions for Telescope
