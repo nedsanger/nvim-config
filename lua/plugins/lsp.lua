@@ -32,15 +32,6 @@ return {
         },
       }
       vim.lsp.enable(servers)
-      vim.lsp.config["tinymist"] = {
-        cmd = { "tinymist" },
-        filetypes = { "typst" },
-        settings = {
-          formatterMode = "typstyle",
-          exportPdf = "onType",
-          semanticTokens = "disable",
-        },
-      }
 
       vim.diagnostic.config({
         virtual_text = false, -- removes inline diagnostic text
