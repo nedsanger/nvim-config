@@ -23,7 +23,7 @@ local function my_on_attach(bufnr)
 
   -- custom mappings
   vim.keymap.set("n", "<CR>", my_open_node, opts("Open"))
-  vim.keymap.set("n", "gh", api.tree.toggle_hidden_filter, opts("Toggle Filter: Dotfiles"))
+  vim.keymap.set("n", "g.", api.tree.toggle_hidden_filter, opts("Toggle Filter: Dotfiles"))
 end
 
 return {
