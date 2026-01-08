@@ -9,5 +9,7 @@ return {
     -- better looking status line
     require("mini.git").setup()
     require("mini.statusline").setup()
+    -- surround commands
+    require("mini.surround").setup()
   end,
 }
