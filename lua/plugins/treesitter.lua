@@ -1,7 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   opts = {
-    -- autoinstall languages that are not installed
     auto_install = true,
     highlight = {
       enable = true,
@@ -9,7 +8,6 @@ return {
     },
     indent = {
       enable = true,
-      disable = { "ruby" },
     },
   },
   build = ":TSUpdate",
