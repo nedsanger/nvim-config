@@ -9,7 +9,6 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 map("n", "<leader>w", "<cmd>w<CR>", { desc = "[W]rite buffer" })
 map("n", "<leader>wq", "<cmd>wq<CR>", { desc = "[W]rite and [Q]uit buffer" })
 
--- quit
 map("n", "<leader>qq", "<cmd>qa<CR>", { desc = "[Q]uit Neovim" })
 
 -- clear highlights on search when pressing <Esc> in normal mode

@@ -20,3 +20,12 @@ vim.api.nvim_create_autocmd("FileType", {
     end
   end,
 })
+
+-- no statusline in the filetree
+vim.api.nvim_create_autocmd("FileType", {
+  desc = "Hide statusline in nvim-tree",
+  pattern = "NvimTree",
+  callback = function()
+    vim.b.ministatusline_disable = true
+  end,
+})
