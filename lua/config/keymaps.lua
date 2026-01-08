@@ -31,6 +31,12 @@ map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
 map("n", "<M-j>", "<cmd>cnext<CR>", { desc = "Next diagnostic" })
 map("n", "<M-k>", "<cmd>cprev<CR>", { desc = "Previous diagnostic" })
 
+-- curly quotes, dashes
+map("i", "<M-[>", "“")
+map("i", "<M-S-[>", "”")
+map("i", "<M-S-->", "—")
+map("i", "<M-->", "–")
+
 -- keybinds to make split navigation easier.
 --  use CTRL+<hjkl> to switch between windows
 map("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
