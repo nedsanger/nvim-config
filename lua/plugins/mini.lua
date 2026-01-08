@@ -4,6 +4,8 @@ return {
   config = function()
     -- comment out lines
     require("mini.comment").setup()
+    -- easily move chunks of code
+    require("mini.move").setup()
     -- produce (, {, [, etc. in pairs
     require("mini.pairs").setup()
     -- better looking status line
