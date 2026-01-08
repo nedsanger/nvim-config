@@ -27,6 +27,10 @@ map({ "n", "t" }, "<C-\\>", "<cmd>ToggleTerm direction=float<CR>")
 map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
 map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
 
+-- navigate quickfix
+map("n", "<M-j>", "<cmd>cnext<CR>")
+map("n", "<M-k>", "<cmd>cprev<CR>")
+
 -- keybinds to make split navigation easier.
 --  use CTRL+<hjkl> to switch between windows
 map("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
