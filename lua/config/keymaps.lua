@@ -22,6 +22,9 @@ map("n", "-", "<cmd>Oil<CR>", { desc = "Open parent directory" })
 -- toggle floating terminal
 map({ "n", "t" }, "<C-\\>", "<cmd>ToggleTerm direction=float<CR>")
 
+-- open a new, empty buffer
+map("n", "<leader>b", "<cmd>new<CR><cmd>only<CR>")
+
 -- comments
 map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
 map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
@@ -46,7 +49,7 @@ map("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 map("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 -- run lua
-map("n", "<space><space>x", "<cmd>source %<CR>")
+map("n", "<space>xx", "<cmd>source %<CR>")
 map("n", "<space>x", ":.lua<CR>")
 map("v", "<space>x", ":lua<CR>")
 
