@@ -27,8 +27,8 @@ map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
 map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
 
 -- navigate quickfix
-map("n", "<M-j>", "<cmd>cnext<CR>", { desc = "Next diagnostic" })
-map("n", "<M-k>", "<cmd>cprev<CR>", { desc = "Previous diagnostic" })
+map("n", "<M-n>", "<cmd>cnext<CR>", { desc = "[N]ext diagnostic" })
+map("n", "<M-p>", "<cmd>cprev<CR>", { desc = "[P]revious diagnostic" })
 
 -- curly quotes, dashes,
 map("i", "<M-[>", "“")
