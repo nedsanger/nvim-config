@@ -30,9 +30,11 @@ map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
 map("n", "<M-j>", "<cmd>cnext<CR>", { desc = "Next diagnostic" })
 map("n", "<M-k>", "<cmd>cprev<CR>", { desc = "Previous diagnostic" })
 
--- curly quotes, dashes
+-- curly quotes, dashes,
 map("i", "<M-[>", "“")
 map("i", "<M-S-[>", "”")
+map("i", "<M-]>", "‘")
+map("i", "<M-S-]>", "’")
 map("i", "<M-S-->", "—")
 map("i", "<M-->", "–")
 
