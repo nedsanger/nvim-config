@@ -25,6 +25,9 @@ map({ "n", "t" }, "<C-\\>", "<cmd>ToggleTerm direction=float<CR>")
 -- open a new, empty buffer
 map("n", "<leader>b", "<cmd>new<CR><cmd>only<CR>")
 
+-- make the current window the only one
+map("n", "<leader>o", "<cmd>only<CR>", { desc = "[O]nly" })
+
 -- comments
 map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
 map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
