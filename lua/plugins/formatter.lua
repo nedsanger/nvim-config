@@ -6,6 +6,7 @@ return {
       lua = { "stylua" },
       tex = { "tex-fmt" },
       typst = { "typstyle" },
+      ocaml = { "ocamlformat" },
     },
     format_on_save = {
       timeout_ms = 500,
