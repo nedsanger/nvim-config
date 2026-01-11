@@ -19,7 +19,7 @@ return {
             "stylua",
             "tinymist",
             "typstyle",
-            "ocaml-lsp",
+            "ocamllsp",
           },
         },
       },

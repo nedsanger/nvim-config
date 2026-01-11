@@ -29,3 +29,12 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.b.ministatusline_disable = true
   end,
 })
+
+-- autoformat
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function()
+    vim.keymap.set("n", "<leader>f", function()
+      require("conform").format({ async = true, lsp_fallback = true })
+    end)
+  end,
+})
