@@ -58,6 +58,7 @@ map("v", "<space>x", ":lua<CR>")
 
 -- see `:help telescope.builtin`
 local builtin = require("telescope.builtin")
+map("n", "<leader>sb", "<cmd>Telescope bibtex<CR>", { desc = "[S]earch [B]ibliography" })
 map("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
 map("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
 map("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
