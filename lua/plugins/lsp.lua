@@ -39,7 +39,6 @@ return {
         "texlab",
         "tinymist",
       }
-
       vim.lsp.config["tinymist"] = {
         cmd = { "tinymist" },
         filetypes = { "typst" },
@@ -48,7 +47,7 @@ return {
         -- produce weird results in a project with
         -- multiple directories
         root_dir = function(bufnr, on_dir)
-          local path = vim.fn.bufname(bufnr)
+          local path = vim.api.nvim_buf_get_name(bufnr)
           on_dir(vim.fs.dirname(path))
         end,
         settings = {

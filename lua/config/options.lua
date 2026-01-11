@@ -32,7 +32,7 @@ o.ignorecase = true
 o.smartcase = true
 
 -- keep signcolumn on by default
--- o.signcolumn = 'yes'
+o.signcolumn = "yes:1"
 
 -- decrease update time
 o.updatetime = 250
