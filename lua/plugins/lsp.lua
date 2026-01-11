@@ -6,7 +6,23 @@ return {
     "neovim/nvim-lspconfig",
 
     dependencies = {
-      { "mason-org/mason.nvim", opts = {} },
+      {
+        "mason-org/mason.nvim",
+        opts = {
+          ensure_installed = {
+            "tinymist",
+            "fourmolu",
+            "haskell-language-server",
+            "lua-language-server",
+            "rust-analyzer",
+            "rustywind",
+            "stylua",
+            "tinymist",
+            "typstyle",
+          },
+        },
+      },
+
       { "saghen/blink.cmp" },
     },
 
@@ -21,15 +37,27 @@ return {
         "lua_ls",
         "rust_analyzer",
         "texlab",
-        tinymist = {
-          cmd = { "tinymist" },
-          filetypes = { "typst" },
-          settings = {
-            formatterMode = "typstyle",
-            exportPdf = "onType",
-            semanticTokens = "disable",
-          },
+        "tinymist",
+      }
+
+      vim.lsp.config["tinymist"] = {
+        cmd = { "tinymist" },
+        filetypes = { "typst" },
+        -- make the LSP's workspace the same as the
+        -- directory of the current file. this could
+        -- produce weird results in a project with
+        -- multiple directories
+        root_dir = function(bufnr, on_dir)
+          local path = vim.fn.bufname(bufnr)
+          on_dir(vim.fs.dirname(path))
+        end,
+        settings = {
+          semanticTokens = "disable",
         },
+      }
+      vim.lsp.config["hls"] = {
+        filetypes = { "haskell", "lhaskell", "cabal" },
+        root_markers = { "*.cabal" },
       }
       vim.lsp.enable(servers)
 
