@@ -19,6 +19,7 @@ return {
             "stylua",
             "tinymist",
             "typstyle",
+            "ocaml-lsp",
           },
         },
       },
@@ -38,6 +39,7 @@ return {
         "rust_analyzer",
         "texlab",
         "tinymist",
+        "ocamllsp",
       }
       vim.lsp.config["tinymist"] = {
         cmd = { "tinymist" },
