@@ -6,25 +6,7 @@ return {
     "neovim/nvim-lspconfig",
 
     dependencies = {
-      {
-        "mason-org/mason.nvim",
-        opts = {
-          ensure_installed = {
-            "tinymist",
-            "fourmolu",
-            "haskell-language-server",
-            "lua-language-server",
-            "rust-analyzer",
-            "rustywind",
-            "stylua",
-            "tinymist",
-            "typstyle",
-            "ocamllsp",
-          },
-        },
-      },
-
-      { "saghen/blink.cmp" },
+      "saghen/blink.cmp",
     },
 
     config = function()
@@ -70,6 +52,25 @@ return {
         -- update_in_insert = false,
       })
     end,
+  },
+
+  {
+    "mason-org/mason-lspconfig.nvim",
+    opts = {
+      ensure_installed = {
+        "tinymist",
+        "hls",
+        "lua_ls",
+        "rust_analyzer",
+        "stylua",
+        "tinymist",
+        "ocamllsp",
+      },
+    },
+    dependencies = {
+      { "mason-org/mason.nvim", opts = {} },
+      "neovim/nvim-lspconfig",
+    },
   },
 
   {
