@@ -36,13 +36,13 @@ map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
 map("n", "<M-n>", "<cmd>cnext<CR>", { desc = "[N]ext diagnostic" })
 map("n", "<M-p>", "<cmd>cprev<CR>", { desc = "[P]revious diagnostic" })
 
--- curly quotes, dashes,
-map("i", "<M-[>", "“")
-map("i", "<M-S-[>", "”")
-map("i", "<M-]>", "‘")
-map("i", "<M-S-]>", "’")
-map("i", "<M-S-->", "—")
-map("i", "<M-->", "–")
+-- curly quotes, dashes, on macOS
+-- map("i", "<M-[>", "“")
+-- map("i", "<M-S-[>", "”")
+-- map("i", "<M-]>", "‘")
+-- map("i", "<M-S-]>", "’")
+-- map("i", "<M-S-->", "—")
+-- map("i", "<M-->", "–")
 
 -- keybinds to make split navigation easier.
 --  use CTRL+<hjkl> to switch between windows

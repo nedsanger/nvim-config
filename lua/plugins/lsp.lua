@@ -64,7 +64,7 @@ return {
         "rust_analyzer",
         "stylua",
         "tinymist",
-        "ocamllsp",
+        -- "ocamllsp",
       },
     },
     dependencies = {
