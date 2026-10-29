@@ -77,3 +77,9 @@ o.shiftwidth = 4
 
 -- syntax concealment
 o.conceallevel = 2
+
+-- backup directory
+vim.opt.backup = true
+vim.opt.swapfile = true
+vim.opt.backupdir = "/home/nedsanger/.backupdir"
+vim.opt.backupext = ".bak"
