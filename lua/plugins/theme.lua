@@ -7,7 +7,7 @@ return {
       require("catppuccin").setup({
         no_italic = true,
       })
-      vim.cmd.colorscheme("catppuccin-macchiato")
+      vim.cmd.colorscheme("catppuccin-frappe")
     end,
   },
 
