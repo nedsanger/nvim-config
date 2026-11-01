@@ -5,11 +5,11 @@
 -- just for test purposes
 local dir = "~/ucla/ma-thesis/"
 local file = vim.fn.expand(dir .. "qr-complexity.typ")
-local bib_path = vim.fn.expand(dir .. "references.bib")
-local metadata_path = vim.fn.expand(dir .. "metadata.yaml")
-local style_path = vim.fn.expand(dir .. "bibstyle.csl")
-local template_path = vim.fn.expand(dir .. "template.typ")
-local write_path = vim.fn.expand(dir .. "bib.typ")
+local bib_path = vim.fn.expand(dir .. "/aux/references.bib")
+local metadata_path = vim.fn.expand(dir .. "/aux/metadata.yaml")
+local style_path = vim.fn.expand(dir .. "/aux/bibstyle.csl")
+local template_path = vim.fn.expand(dir .. "/aux/template.typ")
+local write_path = vim.fn.expand(dir .. "/aux/bib.typ")
 
 local get_keys = function(cb)
   local cmd = { "typst", "query", file, "cite", "--field", "key" }
