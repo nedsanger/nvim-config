@@ -78,6 +78,14 @@ o.shiftwidth = 4
 -- syntax concealment
 o.conceallevel = 2
 
+-- fold
+-- https://vimtricks.wiki/posts/treesitter-foldexpr-code-folding
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldlevel = 99 -- start with all folds open
+vim.opt.foldlevelstart = 99 -- open all folds when opening a file
+vim.opt.foldenable = true
+
 -- backup directory
 vim.opt.backup = true
 vim.opt.swapfile = true
