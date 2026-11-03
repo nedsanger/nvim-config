@@ -78,6 +78,9 @@ o.shiftwidth = 4
 -- syntax concealment
 o.conceallevel = 2
 
+-- auto-change directory to current file
+o.autochdir = true
+
 -- fold
 -- https://vimtricks.wiki/posts/treesitter-foldexpr-code-folding
 vim.opt.foldmethod = "expr"
