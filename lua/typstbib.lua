@@ -5,39 +5,37 @@
 -- just for test purposes
 local dir = "~/ucla/ma-thesis/"
 local file = vim.fn.expand(dir .. "qr-complexity.typ")
-local bib_path = vim.fn.expand(dir .. "/aux/references.bib")
-local metadata_path = vim.fn.expand(dir .. "/aux/metadata.yaml")
-local style_path = vim.fn.expand(dir .. "/aux/bibstyle.csl")
-local template_path = vim.fn.expand(dir .. "/aux/template.typ")
-local write_path = vim.fn.expand(dir .. "/aux/bib.typ")
+local bib_path = vim.fn.expand(dir .. "aux/references.bib")
+local metadata_path = vim.fn.expand(dir .. "aux/metadata.yaml")
+local style_path = vim.fn.expand(dir .. "aux/bibstyle.csl")
+local template_path = vim.fn.expand(dir .. "aux/template.typ")
+local write_path = vim.fn.expand(dir .. "aux/bib.typ")
 
-local get_keys = function(cb)
-  local cmd = { "typst", "query", file, "cite", "--field", "key" }
-
-  vim.system(cmd, { text = true }, function(out)
-    if out.code ~= 0 then
-      cb(nil, out.stderr)
-      return
-    end
-    cb(out.stdout)
+local function notify(msg, level)
+  vim.schedule(function()
+    vim.notify("typstbib: " .. msg, level or vim.log.levels.INFO)
   end)
 end
 
-local function format_keys(s)
-  local ok, arr = pcall(vim.json.decode, s)
-  if not ok or type(arr) ~= "table" then
+-- typst query returns labels like "<key>"; turn them into "@a @b ...", without duplicates
+local function format_keys(json)
+  local ok, labels = pcall(vim.json.decode, json)
+  if not ok or type(labels) ~= "table" then
     return nil
   end
 
-  return table.concat(
-    vim.tbl_map(function(k)
-      return "@" .. k:gsub("[<>]", "")
-    end, arr),
-    ""
-  )
+  local seen, keys = {}, {}
+  for _, label in ipairs(labels) do
+    local key = label:gsub("^<(.*)>$", "%1")
+    if not seen[key] then
+      seen[key] = true
+      table.insert(keys, "@" .. key)
+    end
+  end
+  return table.concat(keys, " "), #keys
 end
 
-local function run_pandoc(keys)
+local function run_pandoc(keys, count)
   local cmd = {
     "pandoc",
     "-f",
@@ -59,20 +57,27 @@ local function run_pandoc(keys)
 
   vim.system(cmd, { text = true, stdin = keys }, function(res)
     if res.code ~= 0 then
-      print(res.stderr)
+      notify("pandoc failed:\n" .. res.stderr, vim.log.levels.ERROR)
+    else
+      notify(("wrote %d references to %s"):format(count, vim.fn.fnamemodify(write_path, ":~:.")))
     end
   end)
 end
 
-vim.api.nvim_create_user_command("GetKeys", function()
-  get_keys(function(ks)
-    print(ks)
+local function build()
+  local cmd = { "typst", "query", file, "cite", "--field", "key" }
+  vim.system(cmd, { text = true }, function(res)
+    if res.code ~= 0 then
+      notify("typst query failed:\n" .. res.stderr, vim.log.levels.ERROR)
+      return
+    end
+    local keys, count = format_keys(res.stdout)
+    if not keys then
+      notify("could not parse typst query output", vim.log.levels.ERROR)
+      return
+    end
+    run_pandoc(keys, count)
   end)
-end, {})
+end
 
-vim.api.nvim_create_user_command("TypstBib", function()
-  get_keys(function(ks)
-    local formatted_keys = format_keys(ks)
-    run_pandoc(formatted_keys)
-  end)
-end, {})
+vim.api.nvim_create_user_command("TypstBib", build, { desc = "Generate bibliography with pandoc" })
