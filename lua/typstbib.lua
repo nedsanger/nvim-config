@@ -17,16 +17,15 @@ local function notify(msg, level)
   end)
 end
 
--- typst query returns labels like "<key>"; turn them into "@a @b ...", without duplicates
+-- turn the JSON list of cite keys into "@a @b ...", without duplicates
 local function format_keys(json)
-  local ok, labels = pcall(vim.json.decode, json)
-  if not ok or type(labels) ~= "table" then
+  local ok, list = pcall(vim.json.decode, json)
+  if not ok or type(list) ~= "table" then
     return nil
   end
 
   local seen, keys = {}, {}
-  for _, label in ipairs(labels) do
-    local key = label:gsub("^<(.*)>$", "%1")
+  for _, key in ipairs(list) do
     if not seen[key] then
       seen[key] = true
       table.insert(keys, "@" .. key)
@@ -65,7 +64,7 @@ local function run_pandoc(keys, count)
 end
 
 local function build()
-  local cmd = { "typst", "query", file, "cite", "--field", "key" }
+  local cmd = { "typst", "eval", "--in", file, "query(cite).map(it => str(it.key))" }
   vim.system(cmd, { text = true }, function(res)
     if res.code ~= 0 then
       notify("typst query failed:\n" .. res.stderr, vim.log.levels.ERROR)
