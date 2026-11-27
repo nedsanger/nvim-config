@@ -21,7 +21,7 @@ local PATH_FIELDS = { "bib", "output", "csl", "template", "metadata", "main" }
 
 local function notify(msg, level)
   vim.schedule(function()
-    vim.notify("typstbib: " .. msg, level or vim.log.levels.INFO)
+    vim.notify("TypstBib: " .. msg, level or vim.log.levels.INFO)
   end)
 end
 
